@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Body = () => {
-  const [listOfRestaurants,setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
   return (
     <div className="body">
       <div className="filter">
@@ -23,8 +23,7 @@ const Body = () => {
         </button>
       </div>
       <div className="restaurant-container">
-        {
-          listOfRestaurants.map((restaurant) => (
+        {listOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.data.id} resData={restaurant} />
         ))}
       </div>
