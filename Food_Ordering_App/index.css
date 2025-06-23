@@ -126,3 +126,18 @@ body {
   background-color: #d5caca;
   border-radius: 5%;
 }
+.login-btn{
+  padding:0 20px;
+  cursor: pointer;
+}
+.filter{
+  display:flex;
+}
+/*.search{
+  display:flex;
+}
+.search-box{
+  width:90px;
+  height:20px;
+  padding:0 10px;
+}*/
