@@ -1,11 +1,34 @@
 import RestaurantCard from "./RestaurantCard.js";
-import resList from "../utils/mockdata.js";
-
-import { useState } from "react";
-import { useEffect } from "react";
-
+//import resList from "../utils/mockdata.js";
+import { useState, useEffect } from "react";
+import Shimmerui from "./shimmer.js";
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const data = await fetch(
+      //https://corsproxy.io/?
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    //console.log(
+    //json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    //);
+
+    const restaurants =
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    setListOfRestaurants(restaurants);
+    //setFilteredRestaurants(restaurants);
+  };
+  if (listOfRestaurants.length === 0) {
+    return <Shimmerui />;
+  }
+  //ternary operator to check if the listOfRestaurants is empty
+  //return listOfRestaurants.length === 0 ? (<Shimmerui />) : (
   return (
     <div className="body">
       <div className="filter">
@@ -13,7 +36,7 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
-              (res) => res.data.avgRating > 4.0
+              (res) => res.info.avgRating > 4.0
             );
             setListOfRestaurants(filteredList);
             console.log(filteredList);
@@ -24,7 +47,7 @@ const Body = () => {
       </div>
       <div className="restaurant-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
