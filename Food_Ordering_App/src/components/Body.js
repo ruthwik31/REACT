@@ -28,6 +28,7 @@ const Body = () => {
     setListOfRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
   };
+
   if (listOfRestaurants.length === 0) {
     return <Shimmerui />;
   }

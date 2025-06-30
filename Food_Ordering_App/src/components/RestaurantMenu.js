@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
     <div className="menu">
       <h1>{name}</h1>
       <p>
-        {cuisines.join(", ")} - {costForTwoMessage}
+        {cuisines?.join(", ")} - {costForTwoMessage}
       </p>
       <h2>Menu</h2>
       <ul>
