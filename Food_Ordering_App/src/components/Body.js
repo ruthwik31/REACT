@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard.js";
 import { useState, useEffect } from "react";
 import Shimmerui from "./shimmer.js";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -28,7 +29,12 @@ const Body = () => {
     setListOfRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
   };
-
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return (
+      <h1>Looks like you are offline, please check your internet connection</h1>
+    );
+  }
   if (listOfRestaurants.length === 0) {
     return <Shimmerui />;
   }
