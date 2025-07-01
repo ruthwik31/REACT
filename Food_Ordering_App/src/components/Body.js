@@ -33,7 +33,6 @@ const Body = () => {
   if (onlineStatus === false) {
     return (
       <h1>Looks like you are offline, please check your internet connection</h1>
-      //<img src="https://i.imgur.com/4GalGvr.jpeg" alt="You are offline" />
     );
   }
   if (listOfRestaurants.length === 0) {

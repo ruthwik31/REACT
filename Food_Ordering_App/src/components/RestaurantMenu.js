@@ -3,21 +3,10 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const { resId } = useParams();
-  const resInfo = useRestaurantMenu(resId);
-
-  /*console.log(resId);
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(RES_MENU_API + resId.id + "&submitAction=ENTER");
-    const json = await data.json();
-    console.log(json);
-    setResInfo(json.data);
-  };*/
-
+  const { id } = useParams();
+  //console.log("resid=" + id);
+  const resInfo = useRestaurantMenu(id);
+  //console.log(resInfo);
   if (resInfo === null) return <Shimmerui />;
   const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info || {};
