@@ -33,7 +33,7 @@ const Body = () => {
         ?.restaurants;
     setListOfRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
-    console.log(restaurants);
+    //console.log(restaurants);
   };
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -78,7 +78,7 @@ const Body = () => {
               );
               setFilteredRestaurants(filteredList);
               //setListOfRestaurants(filteredList);
-              console.log(filteredList);
+              //console.log(filteredList);
             }}
           >
             Top Rated Restaurants
