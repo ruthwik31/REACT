@@ -1,19 +1,20 @@
+Live Hosting at https://hungrydine.vercel.app/
 
- *header
- *- Logo
- *- Nav Items
- *Body
- *- Search Bar
- *- RestaurantList
- *----RestaurantCard
- *----       Image
- *----       Name of Restaurant
- *----       Rating
- *----       Cuisine
- *----       Delivery Time
- *Footer
- *- copyright
- *- Links
- *- Address
- *- contact
- 
+_header
+_- Logo
+
+- Nav Items
+  Body
+  _- Search Bar
+  _- RestaurantList
+  _----RestaurantCard
+  _---- Image
+  _---- Name of Restaurant
+  _---- Rating
+  _---- Cuisine
+  _---- Delivery Time
+  _Footer
+  _- copyright
+  _- Links
+  _- Address
+- contact

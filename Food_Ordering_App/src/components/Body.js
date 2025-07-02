@@ -1,9 +1,14 @@
-import RestaurantCard from "./RestaurantCard.js";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard.js";
+
 //import resList from "../utils/mockdata.js";
 import { useState, useEffect } from "react";
 import Shimmerui from "./shimmer.js";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+
+const RestaurantCardPromoted = withPromotedLabel;
+RestaurantCard;
+
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -28,6 +33,7 @@ const Body = () => {
         ?.restaurants;
     setListOfRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
+    console.log(restaurants);
   };
   const onlineStatus = useOnlineStatus();
   if (onlineStatus === false) {
@@ -86,7 +92,11 @@ const Body = () => {
             to={"/restaurants/" + restaurant?.info?.id}
             className="link-style"
           >
-            <RestaurantCard resData={restaurant} />
+            {restaurant.info.promoted ? (
+              <RestaurantCardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>

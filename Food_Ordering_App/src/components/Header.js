@@ -13,7 +13,7 @@ const Header = () => {
     } //,[btnNameReact]
   );
   return (
-    <div className="flex justify-between bg-blue-50 shadow-lg sm:bg-yellow-50 lg:bg-green-100 mb-2">
+    <div className="flex justify-between bg-green-100 shadow-lg sm:bg-yellow-50 lg:bg-blue-50 mb-2">
       <div className="Logo-Container">
         <img className="w-45" src={LOGO_URL} />
       </div>

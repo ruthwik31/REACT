@@ -2,8 +2,7 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
-  const { name, avgRating, cuisines, sla, cloudinaryImageId } =
-    resData?.info;
+  const { name, avgRating, cuisines, sla, cloudinaryImageId } = resData?.info;
   return (
     <div className="m-4 p-4 w-[250px] rounded-lg bg-grey-100 hover:bg-gray-400">
       <img
@@ -18,4 +17,17 @@ const RestaurantCard = (props) => {
     </div>
   );
 };
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          Promoted
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
 export default RestaurantCard;
